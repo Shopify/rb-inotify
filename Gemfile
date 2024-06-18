@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 # Specify your gem's dependencies in utopia.gemspec
 gemspec
 
+gem "rake"
+gem "rake-compiler"
+
 group :maintenance, optional: true do
   gem "bake-gem"
   gem "bake-modernize"
@@ -15,6 +18,5 @@ group :test do
   gem 'coveralls', require: false
 
   gem "bundler"
-  gem "rake"
   gem "concurrent-ruby"
 end

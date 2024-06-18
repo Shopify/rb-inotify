@@ -7,6 +7,9 @@ module INotify
   #
   # @private
   module Native
+    class Handle
+    end
+
     extend FFI::Library
     ffi_lib FFI::Library::LIBC
     begin
@@ -31,3 +34,5 @@ module INotify
     attach_function :fpathconf, [:int, :int], :long
   end
 end
+
+require 'rb-inotify/rb_inotify'

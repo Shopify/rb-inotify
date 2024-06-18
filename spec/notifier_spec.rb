@@ -25,6 +25,19 @@ describe INotify::Notifier do
       @root.join("bar").tap(&:mkdir)
     end
 
+    it "works" do
+      handle = INotify::Native::Handle.new
+      expect(handle.fileno).to be > 0
+
+      dir.join("test/").mkpath
+      dir.join("plop/").mkpath
+      dir.join("plop/bar").mkpath
+
+      expect(handle.watch(dir, INotify::Native::Flags::IN_MODIFY)).to be true
+      p [1, handle.descriptor_path(1)]
+      p [2, handle.descriptor_path(2)]
+    end
+
     it "stops" do
       @notifier.stop
     end
