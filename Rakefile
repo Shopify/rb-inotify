@@ -8,4 +8,10 @@ Rake::ExtensionTask.new("rb_inotify") do |ext|
   ext.lib_dir = "lib/rb-inotify"
 end
 
-task default: :compile
+require 'rspec/core/rake_task'
+
+RSpec::Core::RakeTask.new do |t|
+  t.pattern = 'spec/**/*_spec.rb'
+end
+
+task default: [:compile, :spec]
