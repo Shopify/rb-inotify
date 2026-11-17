@@ -1,3 +1,5 @@
+> **This repository is no longer maintained.** It has been archived by Shopify and receives no updates or security fixes.
+
 # rb-inotify
 
 This is a simple wrapper over the [inotify](http://en.wikipedia.org/wiki/Inotify) Linux kernel subsystem
